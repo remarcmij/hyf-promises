@@ -4,7 +4,6 @@
   function waitPromise(response) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        console.log('calling resolve()');
         resolve(response);
       }, 2000);
     });

@@ -6,6 +6,7 @@
     setTimeout(callback, delay);
   }
 
+  // 'callback hell'
   function loop() {
     trafficLight('\nGREEN', 3000, () => {
       trafficLight('ORANGE', 1000, () => {

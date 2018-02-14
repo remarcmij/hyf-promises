@@ -17,6 +17,10 @@
     console.log('promise RESOLVED: ' + value);
   });
 
+  wp.then(value => {
+    console.log('promise RESOLVED: ' + value);
+  });
+
   function handler(promise) {
     promise.then(value => {
       console.log('promise RESOLVED: ' + value);
