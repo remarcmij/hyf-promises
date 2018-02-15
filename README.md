@@ -12,31 +12,35 @@ There are two buttons:
 
 **[START]** This button starts a timer (synchronous or asynchronous) with a delay of 5 seconds.
 
-The synchronous timer blocks the UI, so that the buttons become unresponsive while the timer is running. All intermediate button clicks are processed when the timer finishes.
+The synchronous timer blocks the UI, so that the buttons become unresponsive and the counter freezes while the timer is running. All intermediate button clicks are processed when the timer finishes.
 
 The asynchronous timer is non-blocking. The UI remains responsive.
 
-### 2-resolve
+### 2-sync-callback
+
+Examples of synchronous callbacks
+
+### 3-async-callback
+
+Example of a classic async callback
+
+### 4-resolve
 
 Create a promise (`typeof promise === 'object'`) and a `.then`.
 
-### 3-reject
+### 5-reject
 
 Create a promise that gets rejected before it could be resolved. Catch the rejection.
 
-### 4-multi-then
+### 6-multi-then
 
 Demonstrate that multiple `.then` methods are all called.
 
-### 5-traffic-light
+### 7-traffic-light
 
 Demonstrate 'callback hell'.
 
-### 6-traffic-light
+### 8-traffic-light
 
 Show how promises can help to avoid 'callback hell'.
-
-
-
-
 

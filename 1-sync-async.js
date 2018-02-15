@@ -1,33 +1,36 @@
+/* eslint-disable no-var, no-unused-vars */
 'use strict';
-
+var App = App || {};
 {
-  let loopCount = 0;
+  const root = document.getElementById('root');
+  const { createAndAppend } = App.helpers;
+  let timerRunning = false;
 
-  // replace with setTimeout for async version
   function synTimeout(callback, delay) {
-    loopCount = 0;
     const stopTime = Date.now() + delay;
-    while (Date.now() < stopTime) {
-      loopCount++;
-    }
+    while (Date.now() < stopTime);
     callback();
   }
 
   document
     .getElementById('start')
     .addEventListener('click', () => {
-      console.log('start timer');
-      synTimeout(() => {
-        console.log('done', loopCount);
-      }, 5000);
+      if (timerRunning) {
+        createAndAppend('p', root, 'timer already running');
+      } else {
+        createAndAppend('p', root, 'start timer');
+        timerRunning = true;
+        // switch between synTimeout and setTimeout
+        synTimeout(() => {
+          timerRunning = false;
+          createAndAppend('p', root, 'stop timer');
+        }, 5000);
+      }
     });
 
   document
     .getElementById('hello')
     .addEventListener('click', () => {
-      const root = document.getElementById('root');
-      const p = document.createElement('p');
-      p.innerHTML = 'Hello';
-      root.appendChild(p);
+      createAndAppend('p', root, 'Hello, world!');
     });
 }

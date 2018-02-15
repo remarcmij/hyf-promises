@@ -1,25 +1,22 @@
+/* eslint-disable no-unused-vars */
 'use strict';
 
 {
-  function waitPromise(response) {
+  function wait(delay) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         console.log('calling resolve()');
-        resolve(response);
-      }, 2000);
-      setTimeout(() => {
-        console.log('calling reject()');
-        reject();
-      }, 1000);
+        resolve('Hello, world!');
+      }, delay);
     });
   }
 
-  const promise = waitPromise('Hello, world!');
+  const promise = wait(2000);
   console.log('type of a promise is: ' + typeof promise);
 
   promise.then(value => {
     console.log('promise RESOLVED: ' + value);
-  }, () => {
-    console.log('promise REJECTED');
   });
+
+  console.log('code ran to completion');
 }
